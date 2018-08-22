@@ -36,7 +36,7 @@ abstract class Model {
 	protected function getAll($table, $obj)
 	{
 		$var = [];
-		$requ = $this->connection->prepare('SELECT * FROM'.table.'ORDER BY ID DESC');
+		$requ = $this->connexion->prepare('SELECT * FROM '.$table.' ORDER BY ID DESC');
 		$requ -> execute();
 		while($data = $requ->fetch(PDO::FETCH_ASSOC))
 		{

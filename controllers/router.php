@@ -13,7 +13,7 @@ class router{
 			});
 			$url ='';
 
-			if($isset($_GET['url']))
+			if(isset($_GET['url']))
 			{
 				$url = explode('/', filter_var($_GET['url'], FILTER_SANITIZE_URL));
 
@@ -24,7 +24,7 @@ class router{
 				if(file_exists($controllerFile))
 				{
 					require_once($controllerFile);
-					this->$_ctrl = new $controllerClass($url);
+					$this->_ctrl = new $controllerClass($url);
 				} 
 				else
 				{
@@ -34,7 +34,7 @@ class router{
 			else
 			{
 				require_once('controllers/controllerAcceuil.php');
-				this->$_ctrl = new $controllerAcceuil($url);
+				$this->_ctrl = new controllerAcceuil($url);
 			}
 		}
 		catch(Exception $e)
